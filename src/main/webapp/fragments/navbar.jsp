@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -15,14 +15,17 @@
 						<c:choose>
 							<%-- Van bejelentkezett felhasználó --%>
 							<c:when test="${sessionScope.loggedInCustomer != null}">
-								<li><a href="${pageContext.request.contextPath}/customer-center/profile.jsp">Profil adatok</a></li>
+								<li><a href="${pageContext.request.contextPath}/customer-center/profile.jsp">
+                                    <i class="fa fa-user"></i> <c:out value="${sessionScope.loggedInCustomer.name}"/>
+                                </a></li>
 								<li><a href="${pageContext.request.contextPath}/customer-center/subsciptions.jsp">Előfizetések</a></li>
 								<li><a href="${pageContext.request.contextPath}/customer-center/new-subscription.jsp">Új
 										előfizetés</a></li>
+
 								<li><a
 									href="${pageContext.request.contextPath}/customer-center/logout">Kijelentkezés</a></li>
 							</c:when>
-	
+
 							<%-- Nincs bejelentkezett felhasználó --%>
 							<c:otherwise>
 								<li><a href="${pageContext.request.contextPath}/registration.jsp">Regisztráció</a></li>

@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class SubscriptionItemDao implements Dao<SubscriptionItem> {
 
-    public static final String INSERT_INTO_SUBSCRIPTION_ITEM = "insert into subscription_item(product_id, subscription_id) VALUES (?, ?)";
+    public static final String INSERT_INTO_SUBSCRIPTION_ITEM = "insert into subscription_item(product_id, subscription_id, quantity) VALUES (?, ?, ?)";
     private final DataSource dataSource;
 
     @Override
@@ -25,6 +25,7 @@ public class SubscriptionItemDao implements Dao<SubscriptionItem> {
              PreparedStatement ps = connection.prepareStatement(INSERT_INTO_SUBSCRIPTION_ITEM, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, entity.getProduct().getId());
             ps.setInt(2, entity.getSubscription().getId());
+            ps.setInt(3, entity.getQuantity());
 
             ps.executeUpdate();
 
