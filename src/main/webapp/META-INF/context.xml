@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context>
+
+    	<!-- Frissíteni kell a username, password, illetve url attribútumokat -->
+    <Resource
+            name="jdbc/mysql"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxActive="100"
+            maxIdle="30"
+            maxWait="-1"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/cafe_loop2"
+            username="root"
+            password="admin"
+    />
+
+</Context>
